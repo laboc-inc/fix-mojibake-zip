@@ -1,0 +1,55 @@
+name: Build and Deploy
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+        contents: write
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 18
+
+    - name: Setup rust
+      run: |
+        rustup toolchain install 1.77
+        rustup default 1.77
+
+    - name: Install wasm-pack
+      run: |
+        curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+
+    - name: Build WebAssembly
+      run: npm run build:wasm
+
+    - name: Install Dependencies
+      run: npm install
+
+    - run: echo "REPOSITORY_NAME=${GITHUB_REPOSITORY#${GITHUB_REPOSITORY_OWNER}/}" >> $GITHUB_ENV
+
+    - name: Build Next.js
+      run: npm run build
+      env:
+        BASE_PATH: "/${{ env.REPOSITORY_NAME }}"
+
+    - name: Add nojekyll
+      run: touch ./out/.nojekyll
+
+    - name: Commit and Push Changes
+      run: |
+        rm -rf docs
+        mv out docs
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
+        git add -A
+        git commit -m "Build and deploy"
+        git push
