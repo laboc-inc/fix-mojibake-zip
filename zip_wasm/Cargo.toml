@@ -4,7 +4,7 @@ version = "0.0.0"
 authors = ["lbctsunekawa <85925063+laboctsunekawa@users.noreply.github.com>"]
 edition = "2021"
 license = "MIT"
-repository = "https://github.com/Portable-Network-Archive/wasm-demo.git"
+repository = "https://github.com/laboctsunekawa/fix-mojibake-zip.git"
 description = "wasm zip"
 
 [lib]

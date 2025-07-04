@@ -109,7 +109,7 @@ function Home(zip_wasm: typeof import("zip_wasm")) {
         </a>
          */}
         <a
-          href="https://github.com/your-repo-name"
+          href="https://github.com/laboctsunekawa/fix-mojibake-zip"
           className={styles["footer-link"]}
           target="_blank"
           rel="noopener noreferrer"
