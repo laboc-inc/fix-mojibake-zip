@@ -1,0 +1,39 @@
+name: Check Rust build
+on:
+  pull_request:
+  push:
+    paths:
+        - ".github/**"
+        - "zip_wasm/**"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Setup rust
+      run: |
+        rustup toolchain install 1.77
+        rustup default 1.77
+
+    - name: Install wasm-pack
+      run: |
+        curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+
+    - name: Build WebAssembly
+      run: npm run build:wasm
+
+    - name: Run WebAssembly tests
+      run: npm run test:wasm
+
+  format:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Check code format
+      working-directory: zip_wasm
+      run: cargo fmt --check
