@@ -2,7 +2,7 @@ This is a project of fix encode of zip file entry with WebAssembly bootstrapped 
 
 ## Getting Started
 
-First, Open [https://portable-network-archive.github.io/wasm-demo/](https://portable-network-archive.github.io/wasm-demo/) with your browser to see the result.
+First, Open [https://laboctsunekawa.github.io/fix-mojibake-zip/](https://laboctsunekawa.github.io/fix-mojibake-zip/) with your browser to see the result.
 
 ## Development
 
