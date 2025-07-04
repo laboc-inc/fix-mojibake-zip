@@ -6,7 +6,7 @@ updates:
       interval: "weekly"
     open-pull-requests-limit: 10
   - package-ecosystem: "cargo"
-    directory: "pna_wasm"
+    directory: "zip_wasm"
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 10
@@ -16,4 +16,4 @@ updates:
       interval: "weekly"
     open-pull-requests-limit: 10
     ignore:
-      - dependency-name: "pna"
+      - dependency-name: "zip_wasm"

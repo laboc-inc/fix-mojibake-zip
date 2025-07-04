@@ -1,5 +1,5 @@
 {
-  "name": "pna_wasm_demo",
+  "name": "zip_wasm",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,15 +10,15 @@
     "next": "next",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,json,css}'",
     "format:check": "prettier --check './**/*.{js,jsx,ts,tsx,json,css}'",
-    "format:cargo": "cd pna_wasm/ && cargo fmt --all",
-    "build:wasm": "cd pna_wasm/ && wasm-pack build --target web --release",
-    "test:wasm": "cd pna_wasm/ && wasm-pack test --node --release"
+    "format:cargo": "cd zip_wasm/ && cargo fmt --all",
+    "build:wasm": "cd zip_wasm/ && wasm-pack build --target web --release",
+    "test:wasm": "cd zip_wasm/ && wasm-pack test --node --release"
   },
   "dependencies": {
     "@next-tools/dynamic": "^0.0.11",
     "bytes": "^3.1.2",
     "next": "^14",
-    "zip_wasm": "file:./pna_wasm/pkg",
+    "zip_wasm": "file:./zip_wasm/pkg",
     "react": "^18",
     "react-dom": "^18"
   },
