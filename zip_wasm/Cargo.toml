@@ -29,7 +29,7 @@ encoding_rs = "0.8.35"
 getrandom = { version = "0.3", features = ["wasm_js"] }
 
 [dev-dependencies]
-wasm-bindgen-test = "0.3.49"
+wasm-bindgen-test = "0.3.55"
 
 [profile.release]
 # Tell `rustc` to optimize for small code size.
